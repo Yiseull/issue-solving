@@ -16,8 +16,8 @@ public class Artist {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-//    @OneToMany(mappedBy = "artist", fetch = FetchType.EAGER)
-    @OneToMany(mappedBy = "artist", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "artist", fetch = FetchType.EAGER)
+//    @OneToMany(mappedBy = "artist", fetch = FetchType.LAZY)
     private List<Song> songs;
 
     public Artist(String name) {
