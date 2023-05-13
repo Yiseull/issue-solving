@@ -4,6 +4,7 @@ import com.spring.issuesolving.JpaNPlus1.Artist;
 import com.spring.issuesolving.JpaNPlus1.ArtistRepository;
 import com.spring.issuesolving.JpaNPlus1.Song;
 import com.spring.issuesolving.JpaNPlus1.SongRepository;
+import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -15,7 +16,6 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@Transactional
 @SpringBootTest
 public class JpaNPlus1Test {
 
@@ -46,10 +46,27 @@ public class JpaNPlus1Test {
 
     @DisplayName("CASE 1. FetchType.EAGER")
     @Test
+    @Transactional
     void occurJpaNPlus1_EAGER() {
 
         // when - JPA N+1 문제 발생: 조회는 1번 했지만 조회 쿼리는 3번 실행
         List<Artist> artists = artistRepository.findAll();
+
+        // then
+        assertThat(artists.size()).isEqualTo(2);
+    }
+
+    @DisplayName("CASE 2. FetchType.LAZY")
+    @Test
+    @Transactional
+    void occurJpaNPlus1_LAZY() {
+         // when
+        List<Artist> artists = artistRepository.findAll();
+        for (Artist artist : artists) {
+            System.out.println("================ N+1 problem occur ================");
+            System.out.println(artist.getName());
+            artist.getSongs().forEach(song -> System.out.println(song.getTitle()));
+        }
 
         // then
         assertThat(artists.size()).isEqualTo(2);
