@@ -83,4 +83,16 @@ public class JpaNPlus1Test {
         // then
         assertThat(artists.size()).isEqualTo(2);
     }
+
+    @DisplayName("해결방안 2. EntityGraph")
+    @Test
+    @Transactional
+    void solveJpaNPlus1_EntityGraph() {
+
+        // when - JPA N+1 문제 발생: 조회는 1번 했지만 조회 쿼리는 3번 실행
+        List<Artist> artists = artistRepository.findAllEntityGraph();
+
+        // then
+        assertThat(artists.size()).isEqualTo(2);
+    }
 }
