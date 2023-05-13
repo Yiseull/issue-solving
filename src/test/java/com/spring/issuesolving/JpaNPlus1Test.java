@@ -4,6 +4,7 @@ import com.spring.issuesolving.JpaNPlus1.Artist;
 import com.spring.issuesolving.JpaNPlus1.ArtistRepository;
 import com.spring.issuesolving.JpaNPlus1.Song;
 import com.spring.issuesolving.JpaNPlus1.SongRepository;
+import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -90,6 +91,18 @@ public class JpaNPlus1Test {
 
         // when
         List<Artist> artists = artistRepository.findAllEntityGraph();
+
+        // then
+        assertThat(artists.size()).isEqualTo(2);
+    }
+
+    @DisplayName("해결방안 3. FetchMode.SUBSELECT")
+    @Test
+    @Transactional
+    void solveJpaNPlus1_SUBSELECT() {
+
+        // when
+        List<Artist> artists = artistRepository.findAll();
 
         // then
         assertThat(artists.size()).isEqualTo(2);
