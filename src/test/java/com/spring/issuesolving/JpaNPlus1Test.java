@@ -4,7 +4,6 @@ import com.spring.issuesolving.JpaNPlus1.Artist;
 import com.spring.issuesolving.JpaNPlus1.ArtistRepository;
 import com.spring.issuesolving.JpaNPlus1.Song;
 import com.spring.issuesolving.JpaNPlus1.SongRepository;
-import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -77,7 +76,7 @@ public class JpaNPlus1Test {
     @Transactional
     void solveJpaNPlus1_FetchJoin() {
 
-        // when - JPA N+1 문제 발생: 조회는 1번 했지만 조회 쿼리는 3번 실행
+        // when
         List<Artist> artists = artistRepository.findAllJoinFetch();
 
         // then
@@ -89,7 +88,7 @@ public class JpaNPlus1Test {
     @Transactional
     void solveJpaNPlus1_EntityGraph() {
 
-        // when - JPA N+1 문제 발생: 조회는 1번 했지만 조회 쿼리는 3번 실행
+        // when
         List<Artist> artists = artistRepository.findAllEntityGraph();
 
         // then
