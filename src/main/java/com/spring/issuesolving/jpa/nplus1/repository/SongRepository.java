@@ -1,6 +1,6 @@
-package com.spring.issuesolving.JpaNPlus1.repository;
+package com.spring.issuesolving.jpa.nplus1.repository;
 
-import com.spring.issuesolving.JpaNPlus1.entity.Song;
+import com.spring.issuesolving.jpa.nplus1.entity.Song;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

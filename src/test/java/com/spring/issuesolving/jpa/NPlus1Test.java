@@ -1,9 +1,9 @@
-package com.spring.issuesolving;
+package com.spring.issuesolving.jpa;
 
-import com.spring.issuesolving.JpaNPlus1.entity.Artist;
-import com.spring.issuesolving.JpaNPlus1.repository.ArtistRepository;
-import com.spring.issuesolving.JpaNPlus1.entity.Song;
-import com.spring.issuesolving.JpaNPlus1.repository.SongRepository;
+import com.spring.issuesolving.jpa.nplus1.entity.Artist;
+import com.spring.issuesolving.jpa.nplus1.repository.ArtistRepository;
+import com.spring.issuesolving.jpa.nplus1.entity.Song;
+import com.spring.issuesolving.jpa.nplus1.repository.SongRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.BeforeEach;
@@ -18,7 +18,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
-public class JpaNPlus1Test {
+public class NPlus1Test {
 
     @Autowired
     private ArtistRepository artistRepository;

@@ -1,6 +1,6 @@
-package com.spring.issuesolving.JpaNPlus1.repository;
+package com.spring.issuesolving.jpa.nplus1.repository;
 
-import com.spring.issuesolving.JpaNPlus1.entity.Artist;
+import com.spring.issuesolving.jpa.nplus1.entity.Artist;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
