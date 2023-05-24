@@ -1,7 +1,9 @@
 package com.spring.issuesolving.jpa.cannot_multiple_fetchjoin.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 
+@Getter
 @Entity
 public class BandMember {
 
