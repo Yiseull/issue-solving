@@ -12,5 +12,6 @@ public class BandMember {
     private String name;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "band_id")
     private Band band;
 }

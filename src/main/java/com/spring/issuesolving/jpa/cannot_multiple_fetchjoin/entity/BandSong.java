@@ -12,6 +12,7 @@ public class BandSong {
     private String title;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "band_id")
     private Band band;
 
 }
