@@ -12,4 +12,7 @@ public interface BandRepository extends JpaRepository<Band, Long> {
 
     @Query("SELECT b FROM Band b JOIN FETCH b.bandMembers JOIN FETCH b.bandSongs")
     List<Band> findAllWithFetchJoin();
+
+    @Query("SELECT b FROM Band b JOIN FETCH b.bandMembers")
+    List<Band> findAllWithFetchJoinAndBatchSize();
 }
