@@ -19,7 +19,7 @@ public class Band {
 //    private Set<BandMember> bandMembers;  // Solution 1
 
     @OneToMany(mappedBy = "band")
-    @OrderColumn(name = "POSITION")  // Solution 2
+//    @OrderColumn(name = "POSITION")  // Solution 2
     private List<BandSong> bandSongs;
 //    private Set<BandSong> bandSongs;  // Solution 1
 
