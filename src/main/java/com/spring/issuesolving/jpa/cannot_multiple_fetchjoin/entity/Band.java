@@ -21,7 +21,7 @@ public class Band {
     private List<BandMember> bandMembers;
 //    private Set<BandMember> bandMembers;  // Solution 1
 
-    @BatchSize(size = 1000)   // Solution 3
+//    @BatchSize(size = 1000)   // Solution 3
     @OneToMany(mappedBy = "band")
 //    @OrderColumn(name = "POSITION")  // Solution 2
     private List<BandSong> bandSongs;
