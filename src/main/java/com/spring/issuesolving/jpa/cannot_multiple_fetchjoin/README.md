@@ -13,9 +13,9 @@
 5. Hibernate에서 원천 차단 (2개 이상의 Bag을 동시에 fetch하는 행위를 원천 차단)
 6. Hibernate MultipleBagFetchException 발생
 
-## Situation
+## Scenario
 - 밴드(Band)는 여러 명의 멤버(Member)를 가질 수 있고, 여러 개의 곡(Song)을 가질 수 있음
-- 밴드에 연관된 멤버와 곡을 조회하고 싶음
+- 모든 밴드에 대해 밴드에 연관된 멤버와 곡을 조회하고 싶음
 - 조회하는 과정에서 2개의 FETCH JOIN을 사용하였고 MultipleBagFetchException 발생함
 
 ![img.png](img.png)
