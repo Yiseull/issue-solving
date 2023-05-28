@@ -20,5 +20,9 @@
 ### 결과 🖥️
 -> 아직 안해봄
 
+## Case3. 데이터 변경할 때는 변경 감지(dirty checking)를 사용하는 게 무조건 성능에 좋나?
+1. 변경 감지 사용
+2. @DynamicUpdate 사용
+
 ## 사용 Tool
 - JMeter
