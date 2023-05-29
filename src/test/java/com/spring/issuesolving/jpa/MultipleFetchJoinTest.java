@@ -7,12 +7,12 @@ import com.spring.issuesolving.jpa.cannot_multiple_fetchjoin.entity.BandSong;
 import com.spring.issuesolving.jpa.cannot_multiple_fetchjoin.repository.BandRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
+import org.hibernate.loader.MultipleBagFetchException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.dao.InvalidDataAccessApiUsageException;
 
 import java.util.List;
 
@@ -26,15 +26,12 @@ public class MultipleFetchJoinTest {
     @Autowired
     private BandRepository bandRepository;
 
-    @Autowired
-    private EntityManager entityManager;
-
     @DisplayName("MultipleBagFetchException 예외 발생")
     @Test
     public void MultipleBagFetchExceptionTest() {
         assertThatThrownBy(() -> bandRepository.findAllWithFetchJoin())
-                .isInstanceOf(InvalidDataAccessApiUsageException.class)
-                .hasMessageContaining("MultipleBagFetchException");
+                .hasRootCauseInstanceOf(MultipleBagFetchException.class)
+                .hasMessageContaining("cannot simultaneously fetch multiple bags");
     }
 
     @Nested
